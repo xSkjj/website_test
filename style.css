@@ -37,3 +37,8 @@ svg {
 line {
     stroke: #beef; /*this code isn't vegan now*/
 }
+
+rect {
+    fill: #bee2;
+    border: 1px solid #beef;
+}
