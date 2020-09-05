@@ -27,10 +27,6 @@ kbd {
     border-radius: 2px;
 }
 
-img[src="sexuality_chart.png"] {
-    box-shadow: 0 0 10px 10px #303030;
-}
-
 svg {
     position: absolute;
     top: 0;
