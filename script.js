@@ -35,7 +35,7 @@ $(window).mousedown(function(e) {
             y: 0,
             width: 0,
             height: 0
-        })
+        });
         $(window).off("mousemove")
     })
 })
