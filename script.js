@@ -5,10 +5,6 @@
     })
 })*/
 $(window).mousedown(function(e) {
-    $("rect").attr({
-        x: e.pageX,
-        y: e.pageY
-    });
     $(window).mousemove(function(f){
         if (e.pageX > f.pageX) {
             $("rect").attr({
