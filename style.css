@@ -40,5 +40,5 @@ line {
 
 rect {
     fill: #bee2;
-    border: 1px solid #beef;
+    stroke: #beef;
 }
