@@ -36,5 +36,6 @@ $(window).mousedown(function(e) {
             width: 0,
             height: 0
         })
+        $(window).off("mousemove")
     })
 })
