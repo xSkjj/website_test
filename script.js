@@ -29,7 +29,7 @@ $(window).mousedown(function(e) {
         } else {
             $("rect").attr({
                 y: e.pageY,
-                height: f.pageX - e.pageY
+                height: f.pageY - e.pageY
             })
         }
     });
