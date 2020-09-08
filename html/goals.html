@@ -46,7 +46,46 @@
                 <i class="fas fa-times"></i>
             </button>
         </header>
-        <input type="checkbox" id="boxEffect" checked>
+        <input type="checkbox" id="lineEffect" onchange="lineEffect()" checked>
+        <label title="show lines that track your mouse" for="lineEffect">
+            <svg class="checkbox">
+                <line class="on" x1="0" y1="0" x2="50" y2="50"></line>
+                <line class="on" x1="0" y1="50" x2="50" y2="0"></line>
+                <polygon points="25,25 35,35 31,35 35,43 33,44 29,36 25,39"></polygon>
+            </svg>
+        </label>
+        <input type="checkbox" id="clickColor" onchange="clickColor()" checked>
+        <label title="change line color on click" for="clickColor">
+            <svg class="checkbox">
+                <line x1="0" y1="0" x2="25" y2="25"></line>
+                <line x1="0" y1="50" x2="25" y2="25"></line>
+                <line x1="50" y1="0" x2="25" y2="25"></line>
+                <line x1="50" y1="50" x2="25" y2="25"></line>
+                <line x1="25" y1="23" x2="27" y2="20"></line>
+                <line x1="27" y1="25" x2="30" y2="27"></line>
+                <line x1="25" y1="27" x2="23" y2="30"></line>
+                <line x1="23" y1="25" x2="20" y2="23"></line>
+                <polygon points="25,25 35,35 31,35 35,43 33,44 29,36 25,39"></polygon>
+            </svg>
+        </label>
+        <input type="checkbox" id="autoColor" onchange="autoColor()" checked>
+        <label title="change line color automatically" for="autoColor">
+            <svg class="checkbox">
+                <line x1="0" y1="0" x2="25" y2="25"></line>
+                <line x1="0" y1="50" x2="25" y2="25"></line>
+                <line x1="50" y1="0" x2="25" y2="25"></line>
+                <line x1="50" y1="50" x2="25" y2="25"></line>
+                <polygon points="25,25 35,35 31,35 35,43 33,44 29,36 25,39"></polygon>
+            </svg>
+        </label>
+        <input type="color" id="setColor" onchange="setColor()" disabled>
+        <label title="set line color" for="setColor" onclick="unlockColor()">
+            <svg class="colorpicker">
+                <line x1="0" y1="0" x2="50" y2="50"></line>
+                <line x1="0" y1="50" x2="50" y2="0"></line>
+            </svg>
+        </label>
+        <input type="checkbox" id="boxEffect" onchange="boxEffect()" checked>
         <label title="create a box when the mouse button is held down" for="boxEffect">
             <svg class="checkbox">
                 <rect x="6" y="9" width="30" height="20"></rect>
