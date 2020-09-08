@@ -20,53 +20,57 @@ $(window).mousemove(function(e){
 });
 
 // mouseBoxEffect
-$(document).mousedown(function(f){
-    $("#mouseBox rect").attr({
-        x: f.pageX,
-        y: f.pageY,
-        width: 0,
-        height: 0
-    });
-    $(document).mousemove(function(g){
-        if (g.pageX < f.pageX) {
-            $("#mouseBox rect").attr({
-                x: g.pageX,
-                width: f.pageX - g.pageX
-            })
-        } else {
+function boxEffect(){
+    if ($("#boxEffect").prop("checked")) {
+        $(document).mousedown(function(f){
             $("#mouseBox rect").attr({
                 x: f.pageX,
-                width: g.pageX - f.pageX
-            })
-        };
-        if (g.pageY < f.pageY) {
-            $("#mouseBox rect").attr({
-                y: g.pageY,
-                height: f.pageY - g.pageY
-            })
-        } else {
-            $("#mouseBox rect").attr({
                 y: f.pageY,
-                height: g.pageY - f.pageY
+                width: 0,
+                height: 0
+            });
+            $(document).mousemove(function(g){
+                if (g.pageX < f.pageX) {
+                    $("#mouseBox rect").attr({
+                        x: g.pageX,
+                        width: f.pageX - g.pageX
+                    })
+                } else {
+                    $("#mouseBox rect").attr({
+                        x: f.pageX,
+                        width: g.pageX - f.pageX
+                    })
+                };
+                if (g.pageY < f.pageY) {
+                    $("#mouseBox rect").attr({
+                        y: g.pageY,
+                        height: f.pageY - g.pageY
+                    })
+                } else {
+                    $("#mouseBox rect").attr({
+                        y: f.pageY,
+                        height: g.pageY - f.pageY
+                    })
+                }
             })
-        }
-    })
-});
-if (!($("input#boxEffect").prop("checked"))) {
-    $(document).off("mousedown")
-};
-$(document).mouseup(function(){
-    // hide box on mouseup
-    if ($("input#hideBox").prop("checked")) {
-        $("#mouseBox rect").attr({
-            x: 0,
-            y: 0,
-            width: 0,
-            height: 0
+        });
+        $(document).mouseup(function(){
+            // hide box on mouseup
+            if ($("input#hideBox").prop("checked")) {
+                $("#mouseBox rect").attr({
+                    x: 0,
+                    y: 0,
+                    width: 0,
+                    height: 0
+                })
+            };
+            $(document).off('mousemove')
         })
-    };
-    $(document).off('mousemove')
-});
+    } else {
+        $(document).off("mousedown mouseup")
+    }
+};
+$(document).ready(boxEffect());
 
 // change line color
 // ...after time period
@@ -202,7 +206,7 @@ $("#home").click(function(){ // cryptic...
     })
 });
 
-// timeline
+// timeline slider
 $("#timepassed").width(progress()/4 + "%");
 $("#timeleft").width(100 - progress()/4 + "%");
 $("#diff").css("transform","translate(" + progress()/4 + "vw, -50%)");
