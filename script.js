@@ -72,7 +72,7 @@ function boxEffect(){
 };
 $(document).ready(boxEffect());
 
-// change line color
+// change line and rect color
 // ...after time period
 setInterval(function(){
     var r = Math.floor(Math.random()*256),
