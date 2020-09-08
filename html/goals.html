@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../jquery-3.5.1.min.js"></script>
+    <title>My goals</title>
+</head>
+<body>
+    <header>
+        <h1>What are my goals?</h1>
+    </header>
+    <main>
+        <div id="timepassed"></div>
+        <div id="timeleft"></div>
+        <div id="fin-marker"></div>
+        <div id="diff"></div>
+        <input type="range" min="0" max="10000" id="tl-slider" oninput="slide()">
+        <h1 class="goal" id="abschluss">Finish my education with success</h1>
+        <!--get a Laptop to use in my dorm<br>
+        successfully finish my education<br><br>
+        find out, how to invest<br>
+        invest<br>
+        profit-->
+    </main>
+    <footer>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="looks.html">Looks</a>
+            <a href="map.html">Map</a>
+            <a href="freetime.html">Free time</a>
+            <a class="active" href="goals.html">Goals</a>
+        </nav>
+    </footer>
+    <div id="settings-wrapper">
+        <header>
+            <h1>Settings</h1>
+        </header>
+        <input type="checkbox" id="boxEffect" checked>
+        <label title="create a box when the mouse button is held down" for="boxEffect">
+            <svg class="checkbox">
+                <rect x="6" y="9" width="30" height="20"></rect>
+                <line class="off" x1="9" y1="7" x2="33" y2="31"></line>
+                <line class="off" x1="9" y1="31" x2="33" y2="7"></line>
+                <polygon points="35,28 45,38 41,38 45,46 43,47 39,39 35,42"></polygon>
+            </svg>
+        </label>
+        <input type="checkbox" id="hideBox" checked>
+        <label title="hide box when mouse button is released" for="hideBox">
+            <svg class="checkbox">
+                <rect x="5" y="10" width="30" height="20"></rect>
+                <polygon points="30,25 40,35 36,35 40,43 38,44 34,36 30,39"></polygon>
+            </svg>
+        </label>
+        <input type="checkbox" id="skipAnim" checked>
+        <label title="header move in animation" for="skipAnim">
+            <svg class="checkbox">
+                <rect x="0" y="0" width="50" height="10"></rect>
+                <rect class="on" x="0" y="0" width="50" height="6"></rect>
+                <text class="on" x="20" y="12">~</text>
+                <text x="20" y="16">~</text>
+            </svg>
+        </label>
+    </div>
+    <svg id="mouseBox">
+        <line x1="0" y1="0" x2="0" y2="0"></line>
+        <line x1="100%" y1="0" x2="100%" y2="0"></line>
+        <line x1="100%" y1="100%" x2="100%" y2="100%"></line>
+        <line x1="0" y1="100%" x2="0" y2="100%"></line>
+        <rect x="0" y="0" width="0" height="0"></rect>
+    </svg>
+    <script src="../script.js"></script>
+</body>
+</html>
