@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../jquery-3.5.1.min.js"></script>
+    <title>Map</title>
+</head>
+<body>
+    <header>
+        <h1>Here's a map i made.</h1>
+    </header>
+    <main>
+        <svg id="Map">
+            <polygon id="obpf" points="406,0 492,52 480,72 515,87 456,179 546,312 
+                550,366 577,371 602,418 663,418 746,515 728,551 692,521 525,556 487,581 
+                487,629 470,623 476,660 448,701 424,692 346,748 345,697 355,678 337,669 
+                335,647 303,635 279,645 256,602 233,602 220,623 191,602 160,611 155,640 
+                124,592 135,576 118,571 105,581 65,560 45,513 29,495 50,495 34,461 
+                0,443 33,429 54,442 106,372 136,380 155,341 134,322 137,303 127,296 
+                145,281 141,265 155,255 143,241 140,193 171,152 252,124 237,58 380,35 
+                380,18 386,17" />
+            <polygon class="border" id="smol" points="441,64 445,69 449,66 459,78 470,74 
+                472,93 452,99 452,110 457,115 470,119 460,127 448,123 441,122 437,126 
+                434,123 421,136 427,137 426,141 412,144 399,134 400,130 404,129 400,127 
+                402,122 408,122 403,97 431,84" />
+            <polygon class="stadtgrau" points="422,105 425,106 430,103 431,105 
+                438,103 439,106 436,109 436,115 433,115 431,110 423,109" />
+            <line x1="428" y1="107" x2="260" y2="107" />
+            <text class="here" id="smol" x="262" y="125">smol</text>
+            <text class="here" id="smol" x="262" y="145">city</text>
+            <polygon class="border" id="reg" points="352,204 359,206 361,203 363,211 
+                369,210 376,215 377,220 389,222 388,228 399,232 400,229 404,235 403,251 
+                396,253 397,249 390,239 385,237 383,242 376,242 373,237 370,237 356,260 
+                354,261 352,258 347,244 340,244 341,238 335,235 337,229 331,227 339,215 
+                332,212 334,209 347,212" />
+            <polygon class="stadtgrau" points="364,212 369,211 371,213 372,215 
+                372,219 370,220 372,222 377,220 378,223 375,227 373,227 370,224 368,226 
+                367,234 364,238 360,240 358,253 357,252 357,238 359,234 358,229 354,231 
+                353,229 358,224 340,221 333,225 338,218 341,219 344,219 348,218 351,220 
+                357,220 356,217 349,213 352,213 359,216 360,214 363,218 366,221 370,220 
+                366,218" />
+            <line x1="362" y1="225" x2="200" y2="225" />
+            <text class="here" id="reg" x="202" y="243">regular city</text>
+            <circle class="border" id="big" cx="343" cy="608" r="10" />
+            <text class="here" id="big" x="315" y="590">big city</text>
+            <text class="here" id="big" x="290" y="630">too lazy to do this one</text>
+        </svg>
+    </main>
+    <footer>
+        <nav>
+            <a href="../index.html">Home</a>
+            <a href="looks.html">Looks</a>
+            <a class="active" href="map.html">Map</a>
+            <a href="freetime.html">Free time</a>
+            <a href="goals.html">Goals</a>
+        </nav>
+    </footer>
+    <div id="settings-wrapper">
+        <header>
+            <h1>Settings</h1>
+        </header>
+        <input type="checkbox" id="boxEffect" checked>
+        <label title="create a box when the mouse button is held down" for="boxEffect">
+            <svg class="checkbox">
+                <rect x="6" y="9" width="30" height="20"></rect>
+                <line class="off" x1="9" y1="7" x2="33" y2="31"></line>
+                <line class="off" x1="9" y1="31" x2="33" y2="7"></line>
+                <polygon points="35,28 45,38 41,38 45,46 43,47 39,39 35,42"></polygon>
+            </svg>
+        </label>
+        <input type="checkbox" id="hideBox" checked>
+        <label title="hide box when mouse button is released" for="hideBox">
+            <svg class="checkbox">
+                <rect x="5" y="10" width="30" height="20"></rect>
+                <polygon points="30,25 40,35 36,35 40,43 38,44 34,36 30,39"></polygon>
+            </svg>
+        </label>
+        <input type="checkbox" id="skipAnim" checked>
+        <label title="header move in animation" for="skipAnim">
+            <svg class="checkbox">
+                <rect x="0" y="0" width="50" height="10"></rect>
+                <rect class="on" x="0" y="0" width="50" height="6"></rect>
+                <text class="on" x="20" y="12">~</text>
+                <text x="20" y="16">~</text>
+            </svg>
+        </label>
+    </div>
+    <svg id="mouseBox">
+        <line x1="0" y1="0" x2="0" y2="0"></line>
+        <line x1="100%" y1="0" x2="100%" y2="0"></line>
+        <line x1="100%" y1="100%" x2="100%" y2="100%"></line>
+        <line x1="0" y1="100%" x2="0" y2="100%"></line>
+        <rect x="0" y="0" width="0" height="0"></rect>
+    </svg>
+    <script src="../script.js"></script>
+</body>
+</html>
