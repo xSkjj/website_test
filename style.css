@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+:focus {
+    outline: none;
+}
+
 html, body, #mouseBox, #settings-wrapper {
     width: 100%;
     height: 100%;
@@ -70,11 +74,20 @@ header h1 {
     transition: transform .5s;
 }
 
-header::after {
-    content: "settings: esc, # or backslash";
-    font-size: 1rem;
+#toggleSettings {
     position: absolute;
     right: 0;
+    top: 0;
+    width: 55px;
+    height: 55px;
+    border: 5px solid #777;
+    background-color: transparent;
+    font-size: 2em;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* navbar */
@@ -146,19 +159,39 @@ nav a:hover::before, nav a:hover::after {
     justify-content: center;
 }
 
-#settings-wrapper input {
+#settings-wrapper input[type="checkbox"] {
     -webkit-appearance: none;
+    appearance: none;
     margin: 0;
 }
 
-svg.checkbox {
+#settings-wrapper input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    padding: 0;
+    border: none;
+    opacity: 0;
+}
+
+svg.checkbox, svg.colorpicker {
     width: 60px;
     height: 60px;
     border: 5px solid #777;
     margin: 5px;
+    background-color: #fff1;
 }
 
-input:checked + label .checkbox .off {
+input:not(:disabled) + label svg.colorpicker {
+    border-color: #6a6;
+}
+
+input:checked:not(:disabled) + label svg.checkbox {
+    border-color: #6a6;
+}
+
+input:checked + label svg.checkbox .off {
     display: none;
 }
 
@@ -166,43 +199,70 @@ input:not(:checked) + label .checkbox .on {
     display: none;
 }
 
-label[for="boxEffect"] rect {
-    stroke: #59a;
-    fill: #59a2;
+#lineEffect + label line {
+    stroke: #beef;
+    stroke-width: 2px;
 }
 
-input#boxEffect + label line {
+#clickColor + label line:not(:nth-child(1n+5)), #autoColor + label line {
     stroke: #c44;
     stroke-width: 2px;
 }
 
-input:checked + label svg.checkbox {
-    border: 5px solid #6a6;
+#clickColor:checked + label line:nth-child(2), #autoColor:checked + label line:nth-child(2) {
+    stroke: #c74;
 }
 
-label[for="hideBox"] rect {
+#clickColor:checked + label line:nth-child(3), #autoColor:checked + label line:nth-child(3) {
+    stroke: #cc4;
+}
+
+#clickColor:checked + label line:nth-child(4), #autoColor:checked + label line:nth-child(4) {
+    stroke: #7c4;
+}
+
+#clickColor + label line {
+    stroke: #fff;
+}
+
+#setColor + label line {
+    stroke: #beef;
+    stroke-width: 2px;
+}
+
+#boxEffect + label rect {
+    stroke: #59a;
+    fill: #59a2;
+}
+
+#boxEffect + label line {
+    stroke: #c44;
+    stroke-width: 2px;
+}
+
+#hideBox + label rect {
     fill: #7772;
     stroke: #777;
 }
 
-input#hideBox:checked + label rect {
+#hideBox:checked + label rect {
     stroke-dasharray: 4px;
     fill: transparent;
 }
 
-input#skipAnim + label rect {
+#skipAnim + label rect {
     fill: #333;
 }
 
-input#skipAnim + label rect.on {
+#skipAnim + label rect.on {
     fill: #2227;
 }
 
-input#skipAnim + label text {
+#skipAnim + label text {
     fill: #ffff;
 }
 
-input#skipAnim + label text.on {
+#skipAnim + label text.on {
     fill: #fff7;
 }
 
