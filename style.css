@@ -32,7 +32,6 @@ h1 {
 }
 
 h2 {
-    margin: 0;
     font-size: 1.5em;
 }
 
@@ -638,9 +637,10 @@ fieldset {
     border: 1px solid #beef;
 }
 
-h1.goal {
+.goal {
     transform: translateY(-100px);
     display: none;
+    margin: 0;
 }
 
 /* elements on smaller screens (meh...) */
