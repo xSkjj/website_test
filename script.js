@@ -3,7 +3,8 @@ $(function(){
     clickColor();
     autoColor();
     boxEffect();
-    skipAnim()
+    skipAnim();
+    slide()
 });
 
 // header move in animation
