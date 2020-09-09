@@ -159,6 +159,7 @@ nav a:hover::before, nav a:hover::after {
     background-color: #0007;
     align-items: center;
     justify-content: center;
+    flex-wrap: flex;
 }
 
 #settings-wrapper input[type="checkbox"] {
