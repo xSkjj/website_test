@@ -149,7 +149,7 @@ nav a:hover::before, nav a:hover::after {
 }
 
 /* Settings */
-#settings-wrapper {
+#settings {
     display: none;
     position: absolute;
     top: 0;
@@ -160,6 +160,10 @@ nav a:hover::before, nav a:hover::after {
     align-items: center;
     justify-content: center;
     flex-wrap: flex;
+}
+
+#settings-wrapper {
+    max-width: 337px;
 }
 
 #settings-wrapper input[type="checkbox"] {
