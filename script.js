@@ -1,4 +1,5 @@
 $(function(){
+    loadSettings();
     lineEffect();
     clickColor();
     autoColor();
@@ -44,7 +45,7 @@ function lineEffect() {
     }
 };
 
-// selectBox effect like Windows
+// selectBox effect like Windows has
 function boxEffect(){
     if ($("#boxEffect").prop("checked")) {
         $("#hideBox").prop("disabled", false)
@@ -111,6 +112,7 @@ function colorchange() {
         })
     }
 };
+
 // ...after time period
 var autoC = null;
 function autoColor() {
@@ -127,6 +129,7 @@ function autoColor() {
 function autoColorStop() {
     clearInterval(autoC)
 };
+
 // ...with manual click
 function clickColor(){
     if ($("#clickColor").prop("checked")) {
@@ -155,11 +158,12 @@ function setColor() {
 };
 function unlockColor() {
     if ($("#lineEffect").prop("checked")) {
-        $("#setColor").prop("disabled", false);
         $("#clickColor").prop("checked", false);
-        $(document).off("click");
+        clickColor();
+        storeSetting("clickColor");
         $("#autoColor").prop("checked", false);
-        clearInterval(autoC)
+        autoColor();
+        storeSetting("autoColor")
     }
 };
 
@@ -173,6 +177,45 @@ $(window).keyup(function(e){
 function toggleSettings(){
     $("#settings").stop(true).fadeToggle()
 };
+
+
+// Einstellungen speichern und laden mit localStorage
+// ALLE
+function storeSettings() {
+    for (i=0; i < $("#settings-wrapper input").length; i++) {
+        var sett = $("#settings-wrapper input")[i];
+        if (sett.type === "checkbox") {
+            localStorage.setItem(sett.id, sett.checked);
+        } else {
+            localStorage.setItem(sett.id, sett.value)
+        }
+    }
+};
+function loadSettings() {
+    for (i=0; i < $("#settings-wrapper input").length; i++) {
+        var sett = $("#settings-wrapper input")[i];
+        if (sett.type === "checkbox") {
+            sett.checked = (localStorage.getItem(sett.id) === "true")
+        } else {
+            sett.value = localStorage.getItem(sett.id)
+        }
+    }
+};
+
+// EINZELN speichern
+$("#settings-wrapper input").change(function(){
+    storeSetting(this.id)
+});
+function storeSetting(id) {
+    var val = null;
+    if ($("#"+id).prop("type") === "checkbox") {
+        val = $("#"+id).prop("checked")
+    } else {
+        val = $("#"+id).val()
+    }
+    localStorage.setItem(id, val)
+};
+
 
 // Education - how much percent have I progressed through the 3 years of learning
 function progress(percentage) {
