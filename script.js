@@ -164,14 +164,14 @@ function unlockColor() {
 };
 
 // settings: # or esc
-$("#settings-wrapper").css("display","flex").hide();
+$("#settings").css("display","flex").hide();
 $(window).keyup(function(e){
     if (e.keyCode === 191 || e.keyCode === 27) {
         toggleSettings();
     }
 });
 function toggleSettings(){
-    $("#settings-wrapper").stop(true).fadeToggle()
+    $("#settings").stop(true).fadeToggle()
 };
 
 // Education - how much percent have I progressed through the 3 years of learning
