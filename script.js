@@ -278,11 +278,45 @@ $("#timeleft").width(100 - progress()/4 + "%");
 $("#diff").css("transform","translate(" + progress()/4 + "vw, -50%)");
 $("#tl-slider").val(progress()*25);
 function slide() {
-    $("#diff").width($("#tl-slider").val()/100 - progress()/4 + "%");
-    if ($("#tl-slider").val() >= 2500) {
-        $(".goal#abschluss").show()
+    var slider = $("#tl-slider").val();
+    $("#diff").width(slider/100 - progress()/4 + "%");
+    if (slider < Math.floor(progress()*25)) {
+        $(".goal").hide()
     };
-    if ($("#tl-slider").val() < 2500) {
-        $(".goal#abschluss").hide()
+    if (slider >= Math.floor(progress()*25)) {
+        $(".goal#laptop, .goal#invhow").show()
+    };
+    if (slider >= 1337) {
+        $(".goal#invest").show()
+    };
+    if (slider < 1337) {
+        $(".goal#invest").hide()
+    };
+    if (slider > 1669) {
+        $(".goal#laptop").hide()
+    };
+    if (slider >= 2500 && slider <= 3000) {
+        $(".goal#abschluss").show();
+        $(".goal#job").show()
+    };
+    if (slider < 2500 || slider > 3000) {
+        $(".goal#abschluss").hide();
+        $(".goal#job").hide()
+    };
+    if (slider <= 3000) {
+        $(".goal#work").hide()
+    };
+    if (slider > 3000) {
+        $(".goal#work").show()
+    };
+    if (slider > 4200) {
+        $(".goal#invhow").hide()
+    };
+    if (slider == 10000) {
+        $(".goal#profit").show();
+        $(".goal#invest, .goal#work").hide()
+    };
+    if (slider < 10000) {
+        $(".goal#profit").hide()
     }
 }
