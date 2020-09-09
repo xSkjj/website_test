@@ -643,7 +643,7 @@ fieldset {
     margin: 0;
 }
 
-/* elements on smaller screens (meh...) */
+/* elements on smaller screens (meh...)
 @media screen and (max-width: 860px) {
     header h1 {
         font-size: 2em;
