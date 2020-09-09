@@ -3,6 +3,9 @@ $(function(){
     lineEffect();
     clickColor();
     autoColor();
+    if (localStorage.getItem("userHasNeverChangedColor") === null) {
+        setColor()
+    };
     boxEffect();
     skipAnim();
     slide()
@@ -144,12 +147,8 @@ function clickColor(){
 };
 
 // set color manually
-if (!($("#clickColor").prop("checked")) && !($("#autoColor").prop("checked"))) {
-    $("#setColor").prop("disabled", false)
-} else {
-    $("#setColor").prop("disabled", true)
-};
 function setColor() {
+    localStorage.removeItem("userHasNeverChangedColor");
     $("#mouseBox line, #setColor + label line").css("stroke",$("#setColor").val());
     $("#mouseBox rect").css({
         "fill":$("#setColor").val()+"22",
@@ -192,6 +191,10 @@ function storeSettings() {
     }
 };
 function loadSettings() {
+    if (localStorage.length === 0) {
+        storeSettings();
+        localStorage.setItem("userHasNeverChangedColor", true)
+    };
     for (i=0; i < $("#settings-wrapper input").length; i++) {
         var sett = $("#settings-wrapper input")[i];
         if (sett.type === "checkbox") {
