@@ -175,8 +175,8 @@ function toggleSettings(){
 };
 
 
-// Einstellungen speichern und laden mit localStorage
-// ALLE
+// save and load settings with localStorage
+// ...ALL
 function storeSettings() {
     for (i=0; i < $("#settings-wrapper input").length; i++) {
         var sett = $("#settings-wrapper input")[i];
@@ -202,7 +202,7 @@ function loadSettings() {
     }
 };
 
-// EINZELN speichern
+// ...ONE
 $("#settings-wrapper input").change(function(){
     storeSetting(this.id)
 });
