@@ -321,6 +321,8 @@ $("#timepassed").width(progress()/4 + "%");
 $("#timeleft").width(100 - progress()/4 + "%");
 $("#diff").css("transform","translate(" + progress()/4 + "vw, -50%)");
 $("#tl-slider").val(progress()*25);
+
+// show and hide different goals, depending on slider position
 function slide() {
     var slider = $("#tl-slider").val();
     $("#diff").width(slider/100 - progress()/4 + "%");
