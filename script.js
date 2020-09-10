@@ -1,3 +1,4 @@
+// fire all necessary functions, when Site is loaded
 $(function(){
     loadSettings();
     lineEffect();
