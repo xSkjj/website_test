@@ -123,14 +123,11 @@ function autoColor() {
         autoC = setInterval(colorchange, 5000);
         $("#setColor").prop("disabled", true)
     } else {
-        autoColorStop();
+        clearInterval(autoC);
         if (!($("#clickColor").prop("checked")) && $("#lineEffect").prop("checked")) {
             $("#setColor").prop("disabled", false)
         }
     }
-};
-function autoColorStop() {
-    clearInterval(autoC)
 };
 
 // ...with manual click
