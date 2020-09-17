@@ -361,7 +361,7 @@ function slide() {
     };
     if (slider == 10000) {
         $(".goal.end").show();
-        $(".goal#invest, .goal#work").hide()
+        $(".goal#work").hide()
     };
     if (slider < 10000) {
         $(".goal.end").hide()
