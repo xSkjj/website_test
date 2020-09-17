@@ -130,6 +130,11 @@ function autoColor() {
         }
     }
 };
+function unlockColor() {
+    $("#lineEffect").prop("checked", true);
+    lineEffect();
+    storeSetting("lineEffect");
+};
 
 // ...with manual click
 function clickColor(){
@@ -153,7 +158,7 @@ function setColor() {
         "stroke":$("#setColor").val()
     })
 };
-function unlockColor() {
+function unlockSetColor() {
     $("#lineEffect").prop("checked", true);
     lineEffect();
     storeSetting("lineEffect");
