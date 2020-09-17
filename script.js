@@ -130,7 +130,8 @@ function autoColor() {
         }
     }
 };
-function unlockColor() {
+
+function unlockLfx() {
     $("#lineEffect").prop("checked", true);
     lineEffect();
     storeSetting("lineEffect");
@@ -158,7 +159,7 @@ function setColor() {
         "stroke":$("#setColor").val()
     })
 };
-function unlockSetColor() {
+function unlockColor() {
     $("#lineEffect").prop("checked", true);
     lineEffect();
     storeSetting("lineEffect");
