@@ -108,7 +108,6 @@ function unlockBfx() {
         boxEffect();
         storeSetting("boxEffect");
         $("#hideBox").prop("checked", false);
-        hideBox();
         storeSetting("hideBox");
     }
 };
