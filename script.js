@@ -103,12 +103,14 @@ function boxEffect(){
     }
 };
 function unlockBfx() {
-    $("#boxEffect").prop("checked", true);
-    boxEffect();
-    storeSetting("boxEffect");
-    $("#hideBox").prop("checked", false);
-    hideBox();
-    storeSetting("hideBox");
+    if ($("#boxEffect").prop("checked") == false) {
+        $("#boxEffect").prop("checked", true);
+        boxEffect();
+        storeSetting("boxEffect");
+        $("#hideBox").prop("checked", false);
+        hideBox();
+        storeSetting("hideBox");
+    }
 };
 
 // change line and rect color
