@@ -368,19 +368,12 @@ function slide() {
         $(".goal#job").hide()
     };
     if (slider <= 3000) {
-        $(".goal#work").hide()
+        $(".goal.end").hide()
     };
     if (slider > 3000) {
-        $(".goal#work").show()
+        $(".goal.end").show()
     };
     if (slider > 4200) {
         $(".goal#invhow").hide()
-    };
-    if (slider == 10000) {
-        $(".goal.end").show();
-        $(".goal#work").hide()
-    };
-    if (slider < 10000) {
-        $(".goal.end").hide()
     }
 }
