@@ -154,14 +154,15 @@ function setColor() {
     })
 };
 function unlockColor() {
-    if ($("#lineEffect").prop("checked")) {
-        $("#clickColor").prop("checked", false);
-        clickColor();
-        storeSetting("clickColor");
-        $("#autoColor").prop("checked", false);
-        autoColor();
-        storeSetting("autoColor")
-    }
+    $("#lineEffect").prop("checked", true);
+    lineEffect();
+    storeSetting("lineEffect");
+    $("#clickColor").prop("checked", false);
+    clickColor();
+    storeSetting("clickColor");
+    $("#autoColor").prop("checked", false);
+    autoColor();
+    storeSetting("autoColor")
 };
 
 // settings: # or esc
