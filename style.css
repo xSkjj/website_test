@@ -641,4 +641,5 @@ fieldset {
     transform: translateY(50px);
     display: none;
     margin: 0;
+    pointer-events: none;
 }
