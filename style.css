@@ -638,7 +638,7 @@ fieldset {
 }
 
 .goal {
-    transform: translateY(-100px);
+    transform: translateY(50px);
     display: none;
     margin: 0;
 }
