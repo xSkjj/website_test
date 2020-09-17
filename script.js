@@ -102,6 +102,11 @@ function boxEffect(){
         $("#hideBox").prop("disabled", true)
     }
 };
+function unlockBfx() {
+    $("#boxEffect").prop("checked", true);
+    boxEffect();
+    storeSetting("boxEffect");
+};
 
 // change line and rect color
 function colorchange() {
