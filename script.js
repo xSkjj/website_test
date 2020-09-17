@@ -360,10 +360,10 @@ function slide() {
         $(".goal#invhow").hide()
     };
     if (slider == 10000) {
-        $(".goal#profit").show();
+        $(".goal.end").show();
         $(".goal#invest, .goal#work").hide()
     };
     if (slider < 10000) {
-        $(".goal#profit").hide()
+        $(".goal.end").hide()
     }
 }
