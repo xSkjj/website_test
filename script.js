@@ -132,8 +132,9 @@ function autoColor() {
 };
 
 function unlockLfx() {
-    unlockColor();
-    this.checked = true;
+    if ($("#lineEffect").prop("checked") == false) {
+        unlockColor();
+    }
 };
 
 // ...with manual click
