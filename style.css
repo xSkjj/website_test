@@ -186,6 +186,7 @@ svg.checkbox, svg.colorpicker {
     border: 5px solid #777;
     margin: 5px;
     background-color: #fff1;
+    cursor: pointer;
 }
 
 input:not(:disabled) + label svg.colorpicker {
