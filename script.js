@@ -375,5 +375,12 @@ function slide() {
     };
     if (slider > 4200) {
         $(".goal#invhow").hide()
+    };
+    if (slider < 10000) {
+        $(".goal#profit").hide()
+    };
+    if (slider == 10000) {
+        $(".goal").hide();
+        $(".goal#profit").show()
     }
 }
