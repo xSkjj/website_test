@@ -6,7 +6,7 @@ $(function(){
     autoColor();
     if (localStorage.getItem("userHasNeverChangedColor") === null) {
         setColor()
-    };
+    }
     boxEffect();
     skipAnim();
     slide()
@@ -25,7 +25,7 @@ function skipAnim() {
             "transform":"translateY(50%)"
         })
     }
-};
+}
 
 // lines that follow the cursor
 function lineEffect() {
@@ -33,7 +33,7 @@ function lineEffect() {
         $("#clickColor, #autoColor").prop("disabled", false);
         if (!($("#clickColor").prop("checked")) && !($("#autoColor").prop("checked"))) {
             $("#setColor").prop("disabled", false)
-        };
+        }
         $(window).mousemove(function(e){
             $("#mouseBox line")
             .show()
@@ -47,7 +47,7 @@ function lineEffect() {
         $("#mouseBox line").hide();
         $("#clickColor, #autoColor, #setColor").prop("disabled", true)
     }
-};
+}
 
 // selectBox effect like Windows has
 function boxEffect(){
@@ -71,7 +71,7 @@ function boxEffect(){
                         x: f.pageX,
                         width: g.pageX - f.pageX
                     })
-                };
+                }
                 if (g.pageY < f.pageY) {
                     $("#mouseBox rect").attr({
                         y: g.pageY,
@@ -94,14 +94,14 @@ function boxEffect(){
                     width: 0,
                     height: 0
                 })
-            };
+            }
             $(document).off('mousemove')
         })
     } else {
         $(document).off("mousedown mouseup");
         $("#hideBox").prop("disabled", true)
     }
-};
+}
 function unlockBfx() {
     if ($("#boxEffect").prop("checked") == false) {
         $("#boxEffect").prop("checked", true);
@@ -110,7 +110,7 @@ function unlockBfx() {
         $("#hideBox").prop("checked", false);
         storeSetting("hideBox");
     }
-};
+}
 
 // change line and rect color
 function colorchange() {
@@ -124,7 +124,7 @@ function colorchange() {
             "stroke":"rgb("+r+", "+g+","+b+")"
         })
     }
-};
+}
 
 // ...after time period
 var autoC = null;
@@ -138,13 +138,13 @@ function autoColor() {
             $("#setColor").prop("disabled", false)
         }
     }
-};
+}
 
 function unlockLfx() {
     if ($("#lineEffect").prop("checked") == false) {
         unlockColor();
     }
-};
+}
 
 // ...with manual click
 function clickColor(){
@@ -157,7 +157,7 @@ function clickColor(){
             $("#setColor").prop("disabled", false)
         }
     }
-};
+}
 
 // set color manually
 function setColor() {
@@ -167,7 +167,7 @@ function setColor() {
         "fill":$("#setColor").val()+"22",
         "stroke":$("#setColor").val()
     })
-};
+}
 function unlockColor() {
     $("#lineEffect").prop("checked", true);
     lineEffect();
@@ -178,7 +178,7 @@ function unlockColor() {
     $("#autoColor").prop("checked", false);
     autoColor();
     storeSetting("autoColor")
-};
+}
 
 // settings: # or esc
 $("#settings").css("display","flex").hide();
@@ -189,7 +189,7 @@ $(window).keyup(function(e){
 });
 function toggleSettings(){
     $("#settings").stop(true).fadeToggle()
-};
+}
 
 
 // save and load settings with localStorage
@@ -203,12 +203,12 @@ function storeSettings() {
             localStorage.setItem(sett.id, sett.value)
         }
     }
-};
+}
 function loadSettings() {
     if (localStorage.length === 0) {
         storeSettings();
         localStorage.setItem("userHasNeverChangedColor", true)
-    };
+    }
     for (i=0; i < $("#settings-wrapper input").length; i++) {
         var sett = $("#settings-wrapper input")[i];
         if (sett.type === "checkbox") {
@@ -217,7 +217,7 @@ function loadSettings() {
             sett.value = localStorage.getItem(sett.id)
         }
     }
-};
+}
 
 // ...ONE
 $("#settings-wrapper input").change(function(){
@@ -231,7 +231,7 @@ function storeSetting(id) {
         val = $("#"+id).val()
     }
     localStorage.setItem(id, val)
-};
+}
 
 
 // Education - how much percent have I progressed through the 3 years of learning
@@ -243,7 +243,7 @@ function progress(percentage) {
         progressMS = now - startDate,
         percentage = Math.floor(progressMS / progressTotal * 10000) / 100;
     return percentage
-};
+}
 
 // Education - show progress bar
 var barState = false;
@@ -272,7 +272,7 @@ function openProgBar() {
         width: progress()+"%"
     });
     barState = true
-};
+}
 
 // show ".here" text by clicking a ".border" element
 $(".border").click(function(){
@@ -292,7 +292,7 @@ function hobby() {
             })
         }
     })
-};
+}
 
 // highlight what I do at home/ in my dorm
 var highlight = "off";
@@ -301,7 +301,7 @@ $(".place").click(function(){
     if (this.id === highlight) {
         highlight = "off";
         return
-    };
+    }
     $(".place#"+this.id).css("background-color","#333c");
     $(".hobby."+this.id).css("opacity",".9");
     $(".hobby ."+this.id).show();
@@ -324,7 +324,7 @@ $("#home").click(function(){ // cryptic...
             $(".test").click(function(){
                 $(this).text("UCyCdpKr1q2AcLRcCa_5dk8A")
             })
-        };
+        }
         if (highlight === "home" && e.keyCode === 84) {
             $("p:contains(Streams)").click(function(){
                 $(this).text("hmmm...")
@@ -345,40 +345,40 @@ function slide() {
     $("#diff").width(slider/100 - progress()/4 + "%");
     if (slider < Math.floor(progress()*25)) {
         $(".goal").hide()
-    };
+    }
     if (slider >= Math.floor(progress()*25)) {
         $(".goal#laptop, .goal#invhow").show()
-    };
+    }
     if (slider >= 1337) {
         $(".goal#invest").show()
-    };
+    }
     if (slider < 1337) {
         $(".goal#invest").hide()
-    };
+    }
     if (slider > 1669) {
         $(".goal#laptop").hide()
-    };
+    }
     if (slider >= 2500 && slider <= 3000) {
         $(".goal#abschluss").show();
         $(".goal#job").show()
-    };
+    }
     if (slider < 2500 || slider > 3000) {
         $(".goal#abschluss").hide();
         $(".goal#job").hide()
-    };
+    }
     if (slider <= 3000) {
         $(".goal.end").hide()
-    };
+    }
     if (slider > 3000) {
         $(".goal.end").show()
-    };
+    }
     if (slider > 4200) {
         $(".goal#invhow").hide()
-    };
+    }
     if (slider < 10000) {
         $(".goal#profit").hide()
-    };
-    if (slider == 10000) {
+    }
+    if (slider === 10000) {
         $(".goal").hide();
         $(".goal#profit").show()
     }
