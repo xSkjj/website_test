@@ -217,7 +217,7 @@ function storeSettings() {
 function loadSettings() {
     if (localStorage.length === 0) {
         storeSettings();
-        localStorage.setItem("userHasNeverChangedColor", true)
+        localStorage.setItem("userHasNeverChangedColor", "true")
     }
     for (let i = 0; i < settingBox.length; i++) {
         let sett = settingBox[i];
@@ -355,7 +355,7 @@ tlSlider.val(progress() * 25);
 
 // show and hide different goals, depending on slider position
 function slide() {
-    let slider = tlSlider.val();
+    let slider = parseInt(tlSlider.val());
     diff.width(slider / 100 - progress() / 4 + "%");
     if (slider < Math.floor(progress() * 25)) {
         $(".goal").hide()
