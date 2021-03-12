@@ -201,10 +201,11 @@ function toggleSettings() {
 
 // save and load settings with localStorage
 let settingBox = $("#settings-wrapper input");
+
 // ...ALL
 function storeSettings() {
     for (let i = 0; i < settingBox.length; i++) {
-        var sett = $("#settings-wrapper input")[i];
+        let sett = settingBox[i];
         if (sett.type === "checkbox") {
             localStorage.setItem(sett.id, sett.checked);
         } else {
@@ -219,7 +220,7 @@ function loadSettings() {
         localStorage.setItem("userHasNeverChangedColor", true)
     }
     for (let i = 0; i < settingBox.length; i++) {
-        var sett = $("#settings-wrapper input")[i];
+        let sett = settingBox[i];
         if (sett.type === "checkbox") {
             sett.checked = (localStorage.getItem(sett.id) === "true")
         } else {
@@ -306,7 +307,7 @@ function hobby() {
 }
 
 // highlight what I do at home/ in my dorm
-var highlight = "off";
+let highlight = "off";
 $(".place").click(function () {
     $("#hobby-wrapper *").removeAttr("style");
     if (this.id === highlight) {
@@ -354,7 +355,7 @@ tlSlider.val(progress() * 25);
 
 // show and hide different goals, depending on slider position
 function slide() {
-    let slider = $("#tl-slider").val();
+    let slider = tlSlider.val();
     diff.width(slider / 100 - progress() / 4 + "%");
     if (slider < Math.floor(progress() * 25)) {
         $(".goal").hide()
