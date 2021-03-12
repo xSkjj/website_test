@@ -1,5 +1,5 @@
 // fire all necessary functions, when Site is loaded
-$(function () {
+document.addEventListener("DOMContentLoaded", function () {
     loadSettings();
     lineEffect();
     clickColor();
@@ -114,7 +114,7 @@ function unlockBfx() {
 }
 
 // change line and rect color
-function colorchange() {
+function colorChange() {
     if ($("#lineEffect").prop("checked")) {
         var r = Math.floor(Math.random() * 256),
             g = Math.floor(Math.random() * 256),
@@ -132,7 +132,7 @@ var autoC = null;
 
 function autoColor() {
     if ($("#autoColor").prop("checked")) {
-        autoC = setInterval(colorchange, 5000);
+        autoC = setInterval(colorChange, 5000);
         $("#setColor").prop("disabled", true)
     } else {
         clearInterval(autoC);
@@ -151,7 +151,7 @@ function unlockLfx() {
 // ...with manual click
 function clickColor() {
     if ($("#clickColor").prop("checked")) {
-        $(document).click(colorchange);
+        $(document).click(colorChange);
         $("#setColor").prop("disabled", true)
     } else {
         $(document).off("click");
@@ -316,7 +316,7 @@ $(".place").click(function () {
 });
 
 // show more info by clicking an element that has some
-$(".hasinfo").click(function () {
+$(".hasInfo").click(function () {
     $(".info#" + this.id).slideToggle()
 });
 
@@ -341,8 +341,8 @@ $("#home").click(function () { // cryptic...
 });
 
 // timeline slider
-$("#timepassed").width(progress() / 4 + "%");
-$("#timeleft").width(100 - progress() / 4 + "%");
+$("#timePassed").width(progress() / 4 + "%");
+$("#timeLeft").width(100 - progress() / 4 + "%");
 $("#diff").css("transform", "translate(" + progress() / 4 + "vw, -50%)");
 $("#tl-slider").val(progress() * 25);
 
@@ -354,7 +354,7 @@ function slide() {
         $(".goal").hide()
     }
     if (slider >= Math.floor(progress() * 25)) {
-        $(".goal#laptop, .goal#invhow").show()
+        $(".goal#laptop, .goal#invHow").show()
     }
     if (slider >= 1337) {
         $(".goal#invest").show()
@@ -366,11 +366,11 @@ function slide() {
         $(".goal#laptop").hide()
     }
     if (slider >= 2500 && slider <= 3000) {
-        $(".goal#abschluss").show();
+        $(".goal#graduate").show();
         $(".goal#job").show()
     }
     if (slider < 2500 || slider > 3000) {
-        $(".goal#abschluss").hide();
+        $(".goal#graduate").hide();
         $(".goal#job").hide()
     }
     if (slider <= 3000) {
@@ -380,7 +380,7 @@ function slide() {
         $(".goal.end").show()
     }
     if (slider > 4200) {
-        $(".goal#invhow").hide()
+        $(".goal#invHow").hide()
     }
     if (slider < 10000) {
         $(".goal#profit").hide()
