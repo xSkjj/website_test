@@ -116,7 +116,7 @@ function unlockBfx() {
 // change line and rect color
 function colorChange() {
     if ($("#lineEffect").prop("checked")) {
-        var r = Math.floor(Math.random() * 256),
+        let r = Math.floor(Math.random() * 256),
             g = Math.floor(Math.random() * 256),
             b = Math.floor(Math.random() * 256);
         $("#mouseBox line, #setColor + label line").css("stroke", "rgb(" + r + ", " + g + "," + b + ")");
@@ -128,7 +128,7 @@ function colorChange() {
 }
 
 // ...after time period
-var autoC = null;
+let autoC = null;
 
 function autoColor() {
     if ($("#autoColor").prop("checked")) {
@@ -230,7 +230,7 @@ $("#settings-wrapper input").change(function () {
 });
 
 function storeSetting(id) {
-    var val = null;
+    let val;
     if ($("#" + id).prop("type") === "checkbox") {
         val = $("#" + id).prop("checked")
     } else {
@@ -241,18 +241,17 @@ function storeSetting(id) {
 
 
 // Education - how much percent have I progressed through the 3 years of learning
-function progress(percentage) {
-    var startDate = new Date("2020-08-17T07:15:00").getTime(),
+function progress() {
+    let startDate = new Date("2020-08-17T07:15:00").getTime(),
         endDate = new Date("2023-08-15T12:30:00").getTime(),
         now = new Date().getTime(),
         progressTotal = endDate - startDate,
-        progressMS = now - startDate,
-        percentage = Math.floor(progressMS / progressTotal * 10000) / 100;
-    return percentage;
+        progressMS = now - startDate;
+    return Math.floor(progressMS / progressTotal * 10000) / 100;
 }
 
 // Education - show progress bar
-var barState = false;
+let barState = false;
 
 function openProgBar() {
     if (barState) {
