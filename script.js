@@ -1,5 +1,5 @@
 // fire all necessary functions, when Site is loaded
-$(function(){
+$(function () {
     loadSettings();
     lineEffect();
     clickColor();
@@ -15,14 +15,14 @@ $(function(){
 // header move in animation
 function skipAnim() {
     if ($("#skipAnim").prop("checked")) {
-        $("header h1").animate({fontSize: "3em"}, function(){
-            $("header h1").css("transform","translateY(50%)")
+        $("header h1").animate({fontSize: "3em"}, function () {
+            $("header h1").css("transform", "translateY(50%)")
         })
     } else {
         $("header h1").css({
-            "transition":"none",
-            "font-size":"3em",
-            "transform":"translateY(50%)"
+            "transition": "none",
+            "font-size": "3em",
+            "transform": "translateY(50%)"
         })
     }
 }
@@ -34,13 +34,13 @@ function lineEffect() {
         if (!($("#clickColor").prop("checked")) && !($("#autoColor").prop("checked"))) {
             $("#setColor").prop("disabled", false)
         }
-        $(window).mousemove(function(e){
+        $(window).mousemove(function (e) {
             $("#mouseBox line")
-            .show()
-            .attr({
-                x2: e.pageX,
-                y2: e.pageY
-            })
+                .show()
+                .attr({
+                    x2: e.pageX,
+                    y2: e.pageY
+                })
         })
     } else {
         $(window).off("mousemove");
@@ -50,17 +50,17 @@ function lineEffect() {
 }
 
 // selectBox effect like Windows has
-function boxEffect(){
+function boxEffect() {
     if ($("#boxEffect").prop("checked")) {
         $("#hideBox").prop("disabled", false)
-        $(document).mousedown(function(f){
+        $(document).mousedown(function (f) {
             $("#mouseBox rect").attr({
                 x: f.pageX,
                 y: f.pageY,
                 width: 0,
                 height: 0
             });
-            $(document).mousemove(function(g){
+            $(document).mousemove(function (g) {
                 if (g.pageX < f.pageX) {
                     $("#mouseBox rect").attr({
                         x: g.pageX,
@@ -85,7 +85,7 @@ function boxEffect(){
                 }
             })
         });
-        $(document).mouseup(function(){
+        $(document).mouseup(function () {
             // hide box on mouseup
             if ($("#hideBox").prop("checked")) {
                 $("#mouseBox rect").attr({
@@ -102,6 +102,7 @@ function boxEffect(){
         $("#hideBox").prop("disabled", true)
     }
 }
+
 function unlockBfx() {
     if (!($("#boxEffect").prop("checked"))) {
         $("#boxEffect").prop("checked", true);
@@ -115,19 +116,20 @@ function unlockBfx() {
 // change line and rect color
 function colorchange() {
     if ($("#lineEffect").prop("checked")) {
-        var r = Math.floor(Math.random()*256),
-            g = Math.floor(Math.random()*256),
-            b = Math.floor(Math.random()*256);
-        $("#mouseBox line, #setColor + label line").css("stroke","rgb("+r+", "+g+","+b+")");
+        var r = Math.floor(Math.random() * 256),
+            g = Math.floor(Math.random() * 256),
+            b = Math.floor(Math.random() * 256);
+        $("#mouseBox line, #setColor + label line").css("stroke", "rgb(" + r + ", " + g + "," + b + ")");
         $("#mouseBox rect").css({
-            "fill":"rgba("+r+", "+g+","+b+", 0.133)",
-            "stroke":"rgb("+r+", "+g+","+b+")"
+            "fill": "rgba(" + r + ", " + g + "," + b + ", 0.133)",
+            "stroke": "rgb(" + r + ", " + g + "," + b + ")"
         })
     }
 }
 
 // ...after time period
 var autoC = null;
+
 function autoColor() {
     if ($("#autoColor").prop("checked")) {
         autoC = setInterval(colorchange, 5000);
@@ -147,7 +149,7 @@ function unlockLfx() {
 }
 
 // ...with manual click
-function clickColor(){
+function clickColor() {
     if ($("#clickColor").prop("checked")) {
         $(document).click(colorchange);
         $("#setColor").prop("disabled", true)
@@ -162,12 +164,13 @@ function clickColor(){
 // set color manually
 function setColor() {
     localStorage.removeItem("userHasNeverChangedColor");
-    $("#mouseBox line, #setColor + label line").css("stroke",$("#setColor").val());
+    $("#mouseBox line, #setColor + label line").css("stroke", $("#setColor").val());
     $("#mouseBox rect").css({
-        "fill":$("#setColor").val()+"22",
-        "stroke":$("#setColor").val()
+        "fill": $("#setColor").val() + "22",
+        "stroke": $("#setColor").val()
     })
 }
+
 function unlockColor() {
     $("#lineEffect").prop("checked", true);
     lineEffect();
@@ -181,13 +184,14 @@ function unlockColor() {
 }
 
 // settings: # or esc
-$("#settings").css("display","flex").hide();
-$(window).keyup(function(e){
+$("#settings").css("display", "flex").hide();
+$(window).keyup(function (e) {
     if (e.keyCode === 191 || e.keyCode === 27) {
         toggleSettings();
     }
 });
-function toggleSettings(){
+
+function toggleSettings() {
     $("#settings").stop(true).fadeToggle()
 }
 
@@ -195,7 +199,7 @@ function toggleSettings(){
 // save and load settings with localStorage
 // ...ALL
 function storeSettings() {
-    for (i=0; i < $("#settings-wrapper input").length; i++) {
+    for (i = 0; i < $("#settings-wrapper input").length; i++) {
         var sett = $("#settings-wrapper input")[i];
         if (sett.type === "checkbox") {
             localStorage.setItem(sett.id, sett.checked);
@@ -204,12 +208,13 @@ function storeSettings() {
         }
     }
 }
+
 function loadSettings() {
     if (localStorage.length === 0) {
         storeSettings();
         localStorage.setItem("userHasNeverChangedColor", true)
     }
-    for (i=0; i < $("#settings-wrapper input").length; i++) {
+    for (i = 0; i < $("#settings-wrapper input").length; i++) {
         var sett = $("#settings-wrapper input")[i];
         if (sett.type === "checkbox") {
             sett.checked = (localStorage.getItem(sett.id) === "true")
@@ -220,15 +225,16 @@ function loadSettings() {
 }
 
 // ...ONE
-$("#settings-wrapper input").change(function(){
+$("#settings-wrapper input").change(function () {
     storeSetting(this.id)
 });
+
 function storeSetting(id) {
     var val = null;
-    if ($("#"+id).prop("type") === "checkbox") {
-        val = $("#"+id).prop("checked")
+    if ($("#" + id).prop("type") === "checkbox") {
+        val = $("#" + id).prop("checked")
     } else {
-        val = $("#"+id).val()
+        val = $("#" + id).val()
     }
     localStorage.setItem(id, val)
 }
@@ -247,9 +253,10 @@ function progress(percentage) {
 
 // Education - show progress bar
 var barState = false;
+
 function openProgBar() {
     if (barState) {
-        $("#progressBar").stop(true).fadeOut(function(){
+        $("#progressBar").stop(true).fadeOut(function () {
             $("#progressBar,#myProgress").removeAttr("style");
             $("#progressBar").hide();
             $("#myProgress").text("");
@@ -259,35 +266,35 @@ function openProgBar() {
         return;
     }
     $("#progressBar")
-    .stop(true)
-    .removeAttr("style")
-    .animate({
-        width: "90vw",
-        height: "20px"
-    }, function(){
-        $("#myProgress").text(progress()+"%")
-    });
+        .stop(true)
+        .removeAttr("style")
+        .animate({
+            width: "90vw",
+            height: "20px"
+        }, function () {
+            $("#myProgress").text(progress() + "%")
+        });
     $("#myProgress")
-    .animate({
-        width: progress()+"%"
-    });
+        .animate({
+            width: progress() + "%"
+        });
     barState = true;
 }
 
 // show ".here" text by clicking a ".border" element
-$(".border").click(function(){
-    $(".here#"+this.id).stop(true).fadeToggle()
+$(".border").click(function () {
+    $(".here#" + this.id).stop(true).fadeToggle()
 });
 
 // show hobbies
 function hobby() {
-    $(".basic").stop(true).fadeOut(function(){
+    $(".basic").stop(true).fadeOut(function () {
         $("#hobby-wrapper").stop(true).fadeIn()
     });
     // ...and hide them again (esc)
-    $(window).keyup(function(e){
+    $(window).keyup(function (e) {
         if (e.keyCode === 27) {
-            $("#hobby-wrapper").stop(true).fadeOut(function(){
+            $("#hobby-wrapper").stop(true).fadeOut(function () {
                 $(".basic").stop(true).fadeIn()
             })
         }
@@ -296,37 +303,37 @@ function hobby() {
 
 // highlight what I do at home/ in my dorm
 var highlight = "off";
-$(".place").click(function(){
+$(".place").click(function () {
     $("#hobby-wrapper *").removeAttr("style");
     if (this.id === highlight) {
         highlight = "off";
         return
     }
-    $(".place#"+this.id).css("background-color","#333c");
-    $(".hobby."+this.id).css("opacity",".9");
-    $(".hobby ."+this.id).show();
+    $(".place#" + this.id).css("background-color", "#333c");
+    $(".hobby." + this.id).css("opacity", ".9");
+    $(".hobby ." + this.id).show();
     highlight = this.id
 });
 
 // show more info by clicking an element that has some
-$(".hasinfo").click(function() {
-    $(".info#"+this.id).slideToggle()
+$(".hasinfo").click(function () {
+    $(".info#" + this.id).slideToggle()
 });
 
-$(".ka").click(function(){
-    $(this).fadeTo("slow",1)
+$(".ka").click(function () {
+    $(this).fadeTo("slow", 1)
 });
 
-$("#home").click(function(){ // cryptic...
-    $(window).keyup(function(e){
+$("#home").click(function () { // cryptic...
+    $(window).keyup(function (e) {
         if (highlight === "home" && e.keyCode === 192) {
             $(".test").show();
-            $(".test").click(function(){
+            $(".test").click(function () {
                 $(this).text("UCyCdpKr1q2AcLRcCa_5dk8A")
             })
         }
         if (highlight === "home" && e.keyCode === 84) {
-            $("p:contains(Streams)").click(function(){
+            $("p:contains(Streams)").click(function () {
                 $(this).text("hmmm...")
             })
         }
@@ -334,19 +341,19 @@ $("#home").click(function(){ // cryptic...
 });
 
 // timeline slider
-$("#timepassed").width(progress()/4 + "%");
-$("#timeleft").width(100 - progress()/4 + "%");
-$("#diff").css("transform","translate(" + progress()/4 + "vw, -50%)");
-$("#tl-slider").val(progress()*25);
+$("#timepassed").width(progress() / 4 + "%");
+$("#timeleft").width(100 - progress() / 4 + "%");
+$("#diff").css("transform", "translate(" + progress() / 4 + "vw, -50%)");
+$("#tl-slider").val(progress() * 25);
 
 // show and hide different goals, depending on slider position
 function slide() {
     var slider = $("#tl-slider").val();
-    $("#diff").width(slider/100 - progress()/4 + "%");
-    if (slider < Math.floor(progress()*25)) {
+    $("#diff").width(slider / 100 - progress() / 4 + "%");
+    if (slider < Math.floor(progress() * 25)) {
         $(".goal").hide()
     }
-    if (slider >= Math.floor(progress()*25)) {
+    if (slider >= Math.floor(progress() * 25)) {
         $(".goal#laptop, .goal#invhow").show()
     }
     if (slider >= 1337) {
