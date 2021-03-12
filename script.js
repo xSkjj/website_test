@@ -103,7 +103,7 @@ function boxEffect(){
     }
 }
 function unlockBfx() {
-    if ($("#boxEffect").prop("checked") == false) {
+    if (!($("#boxEffect").prop("checked"))) {
         $("#boxEffect").prop("checked", true);
         boxEffect();
         storeSetting("boxEffect");
