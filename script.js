@@ -141,7 +141,7 @@ function autoColor() {
 }
 
 function unlockLfx() {
-    if ($("#lineEffect").prop("checked") == false) {
+    if (!($("#lineEffect").prop("checked"))) {
         unlockColor();
     }
 }
@@ -242,7 +242,7 @@ function progress(percentage) {
         progressTotal = endDate - startDate,
         progressMS = now - startDate,
         percentage = Math.floor(progressMS / progressTotal * 10000) / 100;
-    return percentage
+    return percentage;
 }
 
 // Education - show progress bar
@@ -256,8 +256,8 @@ function openProgBar() {
         });
         $("#progressBar").fadeIn();
         barState = false;
-        return
-    };
+        return;
+    }
     $("#progressBar")
     .stop(true)
     .removeAttr("style")
@@ -271,7 +271,7 @@ function openProgBar() {
     .animate({
         width: progress()+"%"
     });
-    barState = true
+    barState = true;
 }
 
 // show ".here" text by clicking a ".border" element
