@@ -4,7 +4,6 @@ This is my Website.
 
 Hello, World!
 
-This website currently has the *"layout"* of my first school project
--
-- need to change that
-- or something
+###This website currently has the *"layout"* of my first school project
+
+###I had to 
