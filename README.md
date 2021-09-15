@@ -4,6 +4,6 @@ This is my Website.
 
 Hello, World!
 
-### This website currently has the *"layout"* of my first school project
+### This website currently has the *"layout"* of my first school/work project
 
-### I had to remove github pages because of stupid german website law that requires me to invade my privacy by doxing myself
+### I had to remove github pages because of a stupid german website law that requires me to invade my privacy by doxing myself. And I'm not going to do that
